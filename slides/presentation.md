@@ -4,7 +4,7 @@ theme: default
 paginate: true
 size: 16:9
 header: 'AI Hands-on Workshop'
-footer: '© 2026 — rjp.vroegop@gmail.com'
+footer: 'Randy Vroegop — randy@vroegop.me'
 style: |
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap');
 
@@ -13,7 +13,6 @@ style: |
     --ink: #1a1a1a;
     --muted: #6b6b6b;
     --accent: #c2410c;
-    --rule: #1a1a1a;
     --code-bg: #f1ede5;
   }
 
@@ -21,10 +20,10 @@ style: |
     background: var(--bg);
     color: var(--ink);
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-    font-size: 26px;
+    font-size: 24px;
     font-weight: 400;
     line-height: 1.45;
-    padding: 70px 80px;
+    padding: 60px 80px 70px;
     letter-spacing: -0.005em;
   }
 
@@ -36,29 +35,22 @@ style: |
     color: var(--ink);
   }
 
-  h1 {
-    font-size: 52px;
-    margin-bottom: 0.3em;
-  }
+  h1 { font-size: 52px; margin: 0 0 0.3em; }
   h2 {
-    font-size: 40px;
-    margin-bottom: 0.5em;
+    font-size: 36px;
+    margin: 0 0 0.5em;
     padding-bottom: 0.25em;
-    border-bottom: 1px solid var(--ink);
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
   }
-  h3 {
-    font-size: 28px;
-    font-weight: 500;
-    color: var(--muted);
-  }
+  h3 { font-size: 26px; font-weight: 500; color: var(--muted); margin: 0 0 0.6em; }
 
   strong { font-weight: 600; color: var(--ink); }
   em { font-style: italic; }
-
   a { color: var(--accent); text-decoration: none; border-bottom: 1px solid currentColor; }
 
-  ul, ol { padding-left: 1.2em; }
-  li { margin: 0.25em 0; }
+  ul, ol { padding-left: 1.2em; margin: 0.4em 0; }
+  li { margin: 0.2em 0; }
   li::marker { color: var(--accent); }
 
   code {
@@ -73,9 +65,10 @@ style: |
     background: var(--code-bg);
     border-left: 3px solid var(--accent);
     border-radius: 0;
-    padding: 18px 22px;
-    font-size: 19px;
+    padding: 16px 20px;
+    font-size: 18px;
     line-height: 1.5;
+    margin: 0.6em 0;
   }
   pre code { background: transparent; padding: 0; }
 
@@ -83,82 +76,123 @@ style: |
     border: none;
     border-left: 3px solid var(--accent);
     padding-left: 1em;
-    margin-left: 0;
+    margin: 0.6em 0 0;
     color: var(--muted);
     font-style: italic;
     font-family: 'Fraunces', Georgia, serif;
     font-size: 1.05em;
   }
 
-  table {
-    border-collapse: collapse;
-    width: 100%;
-    font-size: 0.95em;
-  }
-  th, td {
-    text-align: left;
-    padding: 10px 14px;
-    border-bottom: 1px solid #d9d4ca;
-  }
-  th {
-    border-bottom: 2px solid var(--ink);
-    font-weight: 600;
-  }
+  table { border-collapse: collapse; width: 100%; font-size: 0.95em; }
+  th, td { text-align: left; padding: 8px 12px; border-bottom: 1px solid #d9d4ca; }
+  th { border-bottom: 2px solid var(--accent); font-weight: 600; }
 
   header, footer {
     color: var(--muted);
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 400;
     letter-spacing: 0.04em;
     text-transform: uppercase;
   }
-  section::after {
-    color: var(--muted);
-    font-size: 14px;
-    font-weight: 500;
-  }
+  section::after { color: var(--muted); font-size: 13px; font-weight: 500; }
 
-  /* Lead / title slides */
+  /* SVG icons (outline, stroke = current accent) */
+  svg.icon { stroke: var(--accent); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+  svg.icon-xl { width: 140px; height: 140px; stroke-width: 1.25; }
+  svg.icon-lg { width: 80px; height: 80px; }
+  svg.icon-md { width: 44px; height: 44px; vertical-align: middle; margin-right: 0.4em; }
+  svg.icon-sm { width: 28px; height: 28px; vertical-align: middle; margin-right: 0.3em; }
+
+  /* Lead / section-divider slides */
   section.lead {
-    text-align: left;
-    padding: 90px 100px;
     background: var(--ink);
     color: var(--bg);
+    padding: 90px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
-  section.lead h1 {
-    font-size: 88px;
-    color: var(--bg);
-    line-height: 1;
-  }
-  section.lead h2 {
-    border: none;
-    color: var(--bg);
-    opacity: 0.7;
-    font-weight: 400;
-    font-style: italic;
-  }
-  section.lead h3 {
-    color: var(--bg);
-    opacity: 0.7;
-    font-weight: 400;
-    font-style: italic;
-    margin-bottom: 2em;
-  }
+  section.lead h1 { color: var(--bg); font-size: 80px; line-height: 1; }
+  section.lead h2 { color: var(--bg); border: none; opacity: 0.85; font-weight: 400; font-style: italic; }
+  section.lead h3 { color: var(--bg); opacity: 0.65; font-weight: 400; font-style: italic; }
+  section.lead svg.icon { stroke: var(--accent); }
   section.lead strong { color: var(--accent); }
-  section.lead::after { color: var(--bg); opacity: 0.5; }
-  section.lead header, section.lead footer { color: var(--bg); opacity: 0.4; }
-  section.lead blockquote { color: var(--bg); opacity: 0.8; }
+  section.lead blockquote { color: var(--bg); opacity: 0.8; border-left-color: var(--accent); }
+  section.lead a { color: var(--accent); border-bottom-color: var(--accent); }
+  section.lead::after { color: var(--bg); opacity: 0.4; }
+  section.lead header, section.lead footer { color: var(--bg); opacity: 0.3; }
+
+  /* Section-themed accent colors */
+  section.part-concepts { --accent: #c2410c; }   /* burnt orange */
+  section.part-demo     { --accent: #0f766e; }   /* deep teal */
+  section.part-handson  { --accent: #6d28d9; }   /* violet */
+  section.part-qa       { --accent: #b91c1c; }   /* deep red */
+  section.part-tips     { --accent: #15803d; }   /* forest */
 
   /* Layout helpers */
-  .columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-  }
-  .small { font-size: 20px; color: var(--muted); }
+  .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .cols-3  { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.8rem; }
+  .small   { font-size: 19px; color: var(--muted); }
+  .lede    { font-size: 28px; line-height: 1.35; color: var(--ink); margin: 0.2em 0 0.6em; }
+  .kicker  { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 1em; }
+  .row     { display: flex; align-items: center; gap: 1rem; margin: 0.4em 0; }
+  .center  { text-align: center; }
+  .stack   { display: flex; flex-direction: column; gap: 0.4em; }
+
+  /* Intro / bio slide */
+  section.bio { padding: 70px 90px; }
+  section.bio .bio-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3rem; align-items: center; }
+  section.bio h1 { font-size: 64px; }
+  section.bio .role { font-family: 'Fraunces', serif; font-size: 28px; font-style: italic; color: var(--muted); margin: 0.2em 0 1em; }
+  section.bio ul { font-size: 22px; }
+  section.bio .contact { margin-top: 1em; font-size: 20px; color: var(--muted); }
+  section.bio .contact a { color: var(--accent); }
+  section.bio .portrait { aspect-ratio: 1 / 1; border-radius: 8px; background: var(--ink); display: flex; align-items: center; justify-content: center; }
+  section.bio .portrait svg { stroke: var(--accent); fill: none; stroke-width: 1; width: 60%; height: 60%; }
 ---
 
-<!-- _class: lead -->
+<!-- _class: bio part-concepts -->
+
+<div class="bio-grid">
+<div>
+
+<div class="kicker">Workshop host</div>
+
+# Randy Vroegop
+
+<div class="role">Developer · AI-native engineering practice</div>
+
+- TODO: current role / company
+- TODO: years of experience, stack
+- TODO: a one-line story about how you got into agentic workflows
+- TODO: something personal (hobby, side project, where you live)
+
+<div class="contact">
+
+[randy@vroegop.me](mailto:randy@vroegop.me) · [linkedin.com/in/randy-vroegop](https://www.linkedin.com/in/randy-vroegop/)
+
+</div>
+
+</div>
+<div class="portrait">
+
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="50" cy="38" r="16"/>
+  <path d="M20 86 C 24 64, 76 64, 80 86"/>
+</svg>
+
+</div>
+</div>
+
+---
+
+<!-- _class: lead part-concepts -->
+
+<svg class="icon icon-xl" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <path d="M14 30 L14 50 L50 50 L50 30"/>
+  <path d="M8 30 L32 12 L56 30"/>
+  <path d="M26 50 L26 38 L38 38 L38 50"/>
+</svg>
 
 # AI Hands-on for Developers
 
@@ -167,6 +201,8 @@ style: |
 One hour of concepts + demo, then you build.
 
 ---
+
+<!-- _class: part-concepts -->
 
 ## What you'll leave with
 
@@ -178,27 +214,39 @@ One hour of concepts + demo, then you build.
 
 ---
 
+<!-- _class: part-concepts -->
+
 ## Agenda
 
-1. Concepts (≈25 min)
-2. Live demo (≈25 min)
-3. Hands-on you'll do later (walkthrough)
-4. Q&A — the questions that actually matter
-5. Tips from the people who do this full-time
+1. Concepts &nbsp;·&nbsp; <span class="small">≈25 min</span>
+2. Live demo &nbsp;·&nbsp; <span class="small">≈25 min</span>
+3. Hands-on walkthrough &nbsp;·&nbsp; <span class="small">do later</span>
+4. Q&A &nbsp;·&nbsp; <span class="small">the questions that actually matter</span>
+5. Tips from people who do this full-time
 
 ---
 
-<!-- _class: lead -->
+<!-- _class: lead part-concepts -->
 
-# Part 1 — Concepts
+<svg class="icon icon-xl" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <path d="M32 8 C 22 8, 16 16, 16 26 C 16 32, 18 36, 22 40 C 22 44, 20 48, 22 52 L 32 52"/>
+  <path d="M32 8 C 42 8, 48 16, 48 26 C 48 32, 46 36, 42 40 C 42 44, 44 48, 42 52 L 32 52"/>
+  <path d="M32 8 L 32 52"/>
+  <circle cx="24" cy="22" r="1.5" fill="currentColor"/>
+  <circle cx="40" cy="22" r="1.5" fill="currentColor"/>
+</svg>
+
+<div class="kicker">Part 1</div>
+
+# Concepts
 
 ---
 
-## What is an "agent markdown file"?
+<!-- _class: part-concepts -->
 
-An agent is mostly **a prompt + a tool list + a working directory**. The markdown file is how you describe it.
+## What is an agent markdown file?
 
-Typical structure:
+An agent is mostly **a prompt + a tool list + a working directory**. The markdown file describes it.
 
 ```markdown
 ---
@@ -212,75 +260,76 @@ You are a senior reviewer. Focus on correctness, not style.
 When you find a bug, cite file:line. Be terse.
 ```
 
-- **Frontmatter** = machine-readable config (name, tools, model)
-- **Body** = the system prompt the agent runs with
-
 ---
 
-## Anatomy of a good agent file
+<!-- _class: part-concepts -->
+
+## Anatomy: frontmatter + body
 
 <div class="columns">
+<div>
 
-**Frontmatter**
+**Frontmatter** — config
 - `name` — stable identifier
-- `description` — *when to use it*, written for the router
+- `description` — *when to use it*
 - `tools` — least-privilege list
 - `model` — match cost to task
 
-**Body**
-- Role and scope ("you do X, not Y")
+</div>
+<div>
+
+**Body** — the prompt
+- Role and scope
 - Hard rules ("never do Z")
 - Output format expectations
-- Examples of good/bad output
+- Examples of good output
 
 </div>
+</div>
 
-> The `description` is not documentation for humans — it's how the main agent decides whether to delegate. Write it like a router rule.
+> `description` isn't human docs — it's how the router decides to delegate.
 
 ---
+
+<!-- _class: part-concepts -->
 
 ## Setting up subagent documentation
 
 Two failure modes:
 
-1. **Too vague** — "helps with code". The router can't tell when to pick it.
-2. **Too greedy** — claims everything. It gets called for tasks it can't do.
+1. **Too vague** — "helps with code". Router can't pick it.
+2. **Too greedy** — claims everything. Gets called for tasks it can't do.
 
-A good subagent description answers:
+A good description answers:
 
-- **Trigger**: what kind of request invokes me?
-- **Scope**: what I will/won't do
-- **Inputs**: what context do I need handed in?
-- **Output**: what does my reply look like?
+- **Trigger** — what kind of request invokes me?
+- **Scope** — what I will and won't do
+- **Inputs / Outputs** — what context in, what shape out
 
 ---
 
-## When NOT to use specialised subagents
+<!-- _class: part-concepts -->
 
-Subagents are not free. Each one:
+## When NOT to use a subagent
 
-- Spawns a fresh context (no memory of the parent conversation)
-- Costs extra tokens to brief
-- Adds latency
-- Can return summaries that hide what really happened
+Subagents aren't free. Each one spawns a fresh context, costs briefing tokens, and hides what really happened.
 
 **Skip subagents when:**
-- The task is short and the parent already has the context
+
+- The parent already has the context
 - You need iterative, conversational work
-- You need to *learn* from doing it (subagent learns, you don't)
+- You need to *learn* from doing it
 - You'd just be passing the same prompt through
 
-> Rule of thumb: delegate **searches and audits**, not **decisions**.
+> Delegate **searches and audits**, not **decisions**.
 
 ---
+
+<!-- _class: part-concepts -->
 
 ## How agents use MCP servers
 
-**MCP (Model Context Protocol)** = a standard way to expose tools to an agent.
-
-- Filesystem, GitHub, Jira, Figma, Slack, Postgres, your internal API…
-- The agent sees them as tool calls; the MCP server does the work
-- You configure them once, every agent in the project can use them
+**MCP** = a standard way to expose tools to an agent. Filesystem, GitHub, Jira, Figma, your internal API.
 
 ```jsonc
 // .claude/settings.json
@@ -291,19 +340,18 @@ Subagents are not free. Each one:
 }
 ```
 
-The agent doesn't "know" GitHub — it knows there's a tool called `create_pull_request` it can call.
+The agent doesn't *know* GitHub — it knows there's a tool called `create_pull_request` it can call.
 
 ---
 
+<!-- _class: part-concepts -->
+
 ## How agents use skills
 
-A **skill** is a reusable, named playbook the agent can load on demand.
-
-- Lives as a markdown file with a description + steps
-- The agent picks it when the description matches the task
-- Keeps the system prompt small until you need the skill
+A **skill** = a reusable, named playbook the agent loads on demand.
 
 <div class="columns">
+<div>
 
 **Without skills**
 - One giant system prompt
@@ -311,34 +359,41 @@ A **skill** is a reusable, named playbook the agent can load on demand.
 - Token bloat
 - Conflicting advice
 
+</div>
+<div>
+
 **With skills**
 - Lean default context
-- Specialized knowledge loaded just in time
+- Loaded just in time
 - Composable
 - Easier to maintain
 
 </div>
+</div>
 
 ---
 
-## Teaching the agent to build its own skills
+<!-- _class: part-concepts -->
 
-When you find yourself repeating a workflow → make it a skill.
+## Teach the agent to build its own skills
+
+When you repeat a workflow → make it a skill.
 
 Prompt pattern:
 
-> "I just did X three times. Extract the steps into a skill named `<name>` with a description of when to use it. Put it in `.claude/skills/`."
+> "I just did X three times. Extract it into a skill named `<name>`. Put it in `.claude/skills/`."
 
 The agent will:
-1. Summarize the repeated steps
-2. Write a frontmatter with a trigger description
-3. Save the playbook
 
-Next session: it loads the skill automatically when the trigger matches.
+1. Summarize the repeated steps
+2. Write frontmatter with a trigger description
+3. Save the playbook — loaded automatically next session
 
 ---
 
-## Why documentation matters (more, not less)
+<!-- _class: part-concepts -->
+
+## Why documentation matters more, not less
 
 Old world: docs are for humans who forget.
 New world: docs are **the runtime context for your agent**.
@@ -351,35 +406,44 @@ New world: docs are **the runtime context for your agent**.
 
 ---
 
-## Structure: router + leaves, not one giant file
+<!-- _class: part-concepts -->
+
+## Structure: router + leaves
 
 <div class="columns">
+<div>
 
 **Anti-pattern**
+
 ```
 CLAUDE.md  (4,000 lines)
 ```
+
 - Always loaded
 - Burns tokens every turn
 - Contradictions pile up
 - Nobody updates it
 
+</div>
+<div>
+
 **Pattern**
+
 ```
 CLAUDE.md (router, ~100 lines)
 docs/
   architecture.md
   testing.md
-  deploy.md
   domain/
     billing.md
-    auth.md
 ```
-The router says: *"for billing questions, read docs/domain/billing.md"*
 
+</div>
 </div>
 
 ---
+
+<!-- _class: part-concepts -->
 
 ## What goes in the router
 
@@ -388,62 +452,65 @@ The router says: *"for billing questions, read docs/domain/billing.md"*
 
 ## Quick facts
 - Stack: TypeScript, Postgres, Next.js
-- Test command: `npm test`
-- Lint: `npm run lint`
+- Test: `npm test`   ·   Lint: `npm run lint`
 
 ## Where to look
 - Architecture decisions → `docs/architecture.md`
-- Testing conventions → `docs/testing.md`
-- Domain: billing → `docs/domain/billing.md`
-- Domain: auth → `docs/domain/auth.md`
+- Testing conventions   → `docs/testing.md`
+- Domain: billing       → `docs/domain/billing.md`
 
 ## House rules
 - No `any` in TS
 - Prefer composition over inheritance
-- Migrations are reviewed by @dba-team
 ```
 
-Small, stable, and tells the agent **where to read next**.
+Small, stable, **tells the agent where to read next**.
 
 ---
+
+<!-- _class: part-concepts -->
 
 ## Why not one big file?
 
-- Every token in the always-loaded context is paid for **every turn**
-- Long context degrades reasoning quality (the "lost in the middle" effect)
-- Agents skim — they're more likely to actually read a focused 200-line doc
+- Every token in always-loaded context is paid **every turn**
+- Long context degrades reasoning ("lost in the middle")
+- Agents skim — focused 200-line docs get read
 - Humans can review small docs; nobody reviews 4,000-line ones
-- Router-style docs survive refactors; monolithic ones rot
+- Router docs survive refactors; monoliths rot
 
 ---
 
-## Tool tour: 5 to know
+<!-- _class: part-concepts -->
+
+## Tool tour: five to know
 
 | Tool | What it does |
 |---|---|
 | **Grill-me-with-docs** | Forces the agent to *interview* you before writing code |
 | **Get Shit Done (GSD)** | Opinionated workflow for shipping a task end-to-end |
-| **OpenSpec** | Spec-first development; the agent works from a spec doc |
+| **OpenSpec** | Spec-first development; agent works from a spec doc |
 | **Superpowers** | A curated bundle of high-quality skills |
-| **BTW (`/btw`)** | Side-channel info about the current session, no context poisoning |
-
-We'll demo all five.
+| **BTW (`/btw`)** | Side-channel session info, no context poisoning |
 
 ---
 
+<!-- _class: part-concepts -->
+
 ## Grill-me-with-docs
 
-**Problem:** you give a vague prompt → AI fills the gaps with assumptions → wrong code.
+**Problem:** vague prompt → AI fills the gaps with assumptions → wrong code.
 
-**Fix:** before any code, the skill makes the agent ask you the questions a senior engineer would ask.
+**Fix:** the skill makes the agent ask the questions a senior engineer would ask, *before* any code:
 
 - "What's the failure mode you're worried about?"
 - "Is this a hot path?"
 - "Who else writes to this table?"
 
-You write down what you actually want. Then the code follows.
+You write down what you actually want. The code follows from that.
 
 ---
+
+<!-- _class: part-concepts -->
 
 ## Get Shit Done (GSD)
 
@@ -460,17 +527,21 @@ Opinionated. Predictable. Great for chores and small features.
 
 ---
 
+<!-- _class: part-concepts -->
+
 ## OpenSpec
 
 Spec-first. You write (or generate) a spec markdown, then the agent implements **against the spec, not the chat**.
 
 - Spec is reviewable, diffable, version-controlled
-- The agent has a stable target — chat drift doesn't change scope
+- Stable target — chat drift doesn't change scope
 - When the spec is wrong, you fix the spec, not the code
 
 Great for: anything you'd put in a ticket.
 
 ---
+
+<!-- _class: part-concepts -->
 
 ## Superpowers
 
@@ -481,63 +552,81 @@ A curated **skill pack**. Think "linter, but for AI workflows."
 - Skills for running the app
 - Skills for refactoring chores
 
-You install once, every project benefits.
+Install once, every project benefits.
 
 ---
 
+<!-- _class: part-concepts -->
+
 ## BTW (`/btw`)
 
-"By the way…" — a way to surface session info *without* polluting the conversation context.
+"By the way…" — surface session info **without** polluting the conversation context.
 
 Use cases:
+
 - "What model am I on?"
 - "How much context have I used?"
 - "What permissions are active?"
 
-The answer comes back as a side panel, not as a message that the next reply has to re-read.
+The answer is a side panel, not a message the next reply has to re-read.
 
 ---
 
+<!-- _class: part-concepts -->
+
 ## Why too much context is bad
 
-- **Cost** — every token is paid every turn
-- **Latency** — bigger prompt = slower response
-- **Quality** — models reason worse on long contexts (well-documented effect)
-- **Confusion** — old, stale, or contradictory info biases new answers
+- **Cost** — every token paid every turn
+- **Latency** — bigger prompt, slower response
+- **Quality** — models reason worse on long contexts
+- **Confusion** — stale info biases new answers
 - **Hidden state** — you lose track of what the model "knows"
 
 > Context is not a junk drawer. It's working memory.
 
 ---
 
-## Clear vs compact
+<!-- _class: part-concepts -->
 
-<div class="columns">
+## Clear the context when…
 
-**Clear the context when**
-- Switching tasks
+- You're switching tasks
 - The agent is stuck in a wrong assumption
 - You're about to do something high-stakes
 - The conversation is full of dead ends
 
-**Compact the context when**
+> Re-establishing context is cheap; cleaning up after a confused agent is not.
+
+---
+
+<!-- _class: part-concepts -->
+
+## Compact the context when…
+
 - You want to keep the *conclusions* but drop the *exploration*
 - You're mid-task and approaching limits
-- The early turns are no longer relevant but the decisions still are
+- Early turns are no longer relevant but the decisions still are
 
-</div>
-
-> Default: clear more often than you think. Re-establishing context is cheap; cleaning up after a confused agent is not.
+> Default: clear more often than you think.
 
 ---
 
-<!-- _class: lead -->
+<!-- _class: lead part-demo -->
 
-# Part 2 — Live Demo
+<svg class="icon icon-xl" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="32" cy="32" r="24"/>
+  <path d="M26 22 L 44 32 L 26 42 Z"/>
+</svg>
 
-I drive. You watch. Questions welcome.
+<div class="kicker">Part 2</div>
+
+# Live demo
+
+### I drive · you watch · questions welcome
 
 ---
+
+<!-- _class: part-demo -->
 
 ## Demo plan
 
@@ -545,11 +634,13 @@ I drive. You watch. Questions welcome.
 2. **GSD vs OpenSpec** on the same task — side by side
 3. Tour of **Superpowers** skills
 4. `/btw` mid-session to check state
-5. A real `.claude/CLAUDE.md` router file
+5. A real `CLAUDE.md` router file
 6. Doc structure with router + leaves
 7. A real subagent markdown file
 
 ---
+
+<!-- _class: part-demo -->
 
 ## Demo 1 — Grill me with docs
 
@@ -561,23 +652,24 @@ Watch what the agent asks back **before** writing a line of code. Notice how the
 
 ---
 
+<!-- _class: part-demo -->
+
 ## Demo 2 — GSD vs OpenSpec
 
 Same task: *"Add a `/health` endpoint that checks DB connectivity."*
 
-- **GSD**: chat → implementation → tests → commit
-- **OpenSpec**: write spec → review spec → implement spec → tests → commit
+- **GSD** — chat → implementation → tests → commit
+- **OpenSpec** — write spec → review → implement → tests → commit
 
-Compare:
-- Time to first commit
-- Reviewability of the artifact
-- What happens when I change my mind mid-task
+Compare: time to first commit, reviewability, what happens when I change my mind mid-task.
 
 ---
 
+<!-- _class: part-demo -->
+
 ## Demo 3 — Superpowers tour
 
-Quick look at what installing Superpowers gives you:
+What installing Superpowers gives you:
 
 - `verify` — actually run the app to confirm a change works
 - `code-review` — review the current diff for bugs
@@ -588,17 +680,21 @@ We'll trigger `verify` on a real change.
 
 ---
 
+<!-- _class: part-demo -->
+
 ## Demo 4 — `/btw`
 
-Mid-demo, I'll run `/btw` to ask:
+Mid-demo, I'll run `/btw` and ask:
 
 - What model am I on?
 - What permissions are active?
 - How much context is left?
 
-Notice how the answer **doesn't** show up as a message the next prompt has to ingest.
+Notice the answer **doesn't** show up as a message the next prompt has to ingest.
 
 ---
+
+<!-- _class: part-demo -->
 
 ## Demo 5 — A real CLAUDE.md router
 
@@ -611,9 +707,9 @@ We'll open the project's `CLAUDE.md` and walk through:
 
 ---
 
-## Demo 6 — Docs with a router
+<!-- _class: part-demo -->
 
-Repo layout:
+## Demo 6 — Docs with a router
 
 ```
 CLAUDE.md
@@ -635,9 +731,9 @@ The router points; the leaves explain.
 
 ---
 
-## Demo 7 — A subagent file
+<!-- _class: part-demo -->
 
-We'll look at `.claude/agents/migration-checker.md`:
+## Demo 7 — A subagent file
 
 ```markdown
 ---
@@ -656,22 +752,31 @@ Report: safe / unsafe / needs-info, with file:line.
 
 ---
 
-<!-- _class: lead -->
+<!-- _class: lead part-handson -->
 
-# Part 3 — Hands-on (do this later)
+<svg class="icon icon-xl" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <path d="M40 12 L 52 24 L 44 32 L 38 26 L 22 42 L 22 48 L 16 48 L 16 42 L 32 26 L 26 20 Z"/>
+  <circle cx="46" cy="18" r="2"/>
+</svg>
 
-Reproduce the demos on your machine.
+<div class="kicker">Part 3</div>
+
+# Hands-on
+
+### Do this later — reproduce the demos on your own machine
 
 ---
 
-## Hands-on setup (5 min)
+<!-- _class: part-handson -->
+
+## Setup (5 min)
 
 ```bash
 # Clone a sandbox project (any small repo of yours works)
 git clone <your-repo>
 cd <your-repo>
 
-# Install Claude Code (or your tool of choice)
+# Install Claude Code
 npm install -g @anthropic-ai/claude-code
 
 # Initialize
@@ -682,17 +787,21 @@ You should now have a `.claude/` folder and a `CLAUDE.md`.
 
 ---
 
+<!-- _class: part-handson -->
+
 ## Exercise 1 — Grill me with docs
 
 1. Install the `grill-me-with-docs` skill
 2. Prompt: *"Add a feature flag system to this project."*
 3. Let the agent interview you
-4. **Save the answers as a spec doc** in `docs/specs/feature-flags.md`
+4. Save the answers as `docs/specs/feature-flags.md`
 5. Then ask the agent to implement against that doc
 
-> Goal: feel the difference between "vibe coding" and spec-driven prompts.
+> Goal: feel the difference between vibe coding and spec-driven prompts.
 
 ---
+
+<!-- _class: part-handson -->
 
 ## Exercise 2 — GSD vs OpenSpec
 
@@ -701,12 +810,15 @@ Pick a real small task in your repo.
 - Do it once with **GSD**
 - Reset, do it again with **OpenSpec**
 
-Compare the diffs and the time. Note which one you'd want for:
-- A 30-minute chore
-- A 2-day feature
-- A risky refactor
+Compare the diffs and the time. Which one would you want for:
+
+- a 30-minute chore?
+- a 2-day feature?
+- a risky refactor?
 
 ---
+
+<!-- _class: part-handson -->
 
 ## Exercise 3 — Install Superpowers
 
@@ -720,6 +832,8 @@ Notice what each skill is good at — and what it misses.
 
 ---
 
+<!-- _class: part-handson -->
+
 ## Exercise 4 — `/btw` discipline
 
 Use `/btw` at least three times during a session:
@@ -728,9 +842,11 @@ Use `/btw` at least three times during a session:
 - Once to check context usage
 - Once to ask "what files have I touched this session?"
 
-Goal: train the muscle of asking **meta-questions out of band**.
+> Train the muscle of asking **meta-questions out of band**.
 
 ---
+
+<!-- _class: part-handson -->
 
 ## Exercise 5 — Write your CLAUDE.md router
 
@@ -747,6 +863,8 @@ Then move detail into `docs/architecture.md`, `docs/testing.md`, etc.
 
 ---
 
+<!-- _class: part-handson -->
+
 ## Exercise 6 — Router-style docs
 
 Take your biggest existing doc (or your README) and split it:
@@ -754,11 +872,11 @@ Take your biggest existing doc (or your README) and split it:
 - One **router** page (titles + one-line summary + link)
 - N **leaf** pages, each focused
 
-Re-run a typical prompt and compare:
-- Tokens used
-- Quality of the answer
+Re-run a typical prompt and compare: tokens used, quality of answer.
 
 ---
+
+<!-- _class: part-handson -->
 
 ## Exercise 7 — Write a subagent
 
@@ -770,54 +888,76 @@ name: pr-describer
 description: Writes PR descriptions from a diff.
 tools: Bash, Read
 ---
+
 You take the current git diff and produce:
 - One-line title (<70 chars)
 - Bulleted summary (3 bullets max)
 - Test plan checklist
 ```
 
-Use it on a real PR. Iterate the description until invocation feels reliable.
+Use it on a real PR. Iterate until invocation feels reliable.
 
 ---
 
-<!-- _class: lead -->
+<!-- _class: lead part-qa -->
 
-# Part 4 — Q&A
+<svg class="icon icon-xl" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="32" cy="32" r="24"/>
+  <path d="M24 24 C 24 18, 30 16, 32 16 C 36 16, 40 18, 40 24 C 40 30, 32 30, 32 36"/>
+  <circle cx="32" cy="44" r="2" fill="currentColor"/>
+</svg>
 
-The questions that actually matter
+<div class="kicker">Part 4</div>
+
+# Q&A
+
+### The questions that actually matter
 
 ---
+
+<!-- _class: part-qa -->
 
 ## Do coding standards still matter?
 
 **Short answer:** more than ever.
 
-- The agent will follow whatever pattern dominates the repo
+- The agent follows whatever pattern dominates the repo
 - No standard → it averages across everything it's ever seen
 - Standards are how you steer the agent without prompting every time
 
-> Let the AI **execute** the standard. Don't let it **invent** the standard.
+> Let the AI **execute** the standard. Don't let it **invent** it.
 
 ---
+
+<!-- _class: part-qa -->
 
 ## Should we change architecture to suit AI?
 
 A bit, yes — but not by inventing new patterns.
 
-**Things that help AI also help humans:**
-- Small modules with clear boundaries
+<div class="columns">
+<div>
+
+**Helps both AI & humans**
+- Small modules, clear boundaries
 - Pure functions where possible
 - Explicit dependency injection
 - Boring, predictable file layout
 
-**Things that hurt AI:**
-- Magic, reflection, dynamic dispatch everywhere
-- Implicit conventions ("you just have to know")
+</div>
+<div>
+
+**Hurts AI**
+- Magic, reflection, dynamic dispatch
+- Implicit conventions
 - Mega-files of mixed concerns
 
-> If your architecture confuses a new hire, it confuses the agent.
+</div>
+</div>
 
 ---
+
+<!-- _class: part-qa -->
 
 ## Is testing strategy shifting?
 
@@ -826,304 +966,345 @@ Yes. Two real changes:
 1. **More tests, lower cost.** Generating tests is cheap; running them is the new bottleneck.
 2. **Tests as specs.** Tests become the contract the agent implements against.
 
-What stays the same:
-- You still need to know **what** to test
-- Coverage ≠ correctness
-- E2E tests still tell you the truth
-
 > The agent is great at writing the tests *you* tell it to write. Mediocre at deciding *which* tests matter.
 
 ---
 
-## How to share AI assets across a company
+<!-- _class: part-qa -->
+
+## Sharing AI assets — what to commit
 
 **Commit to the repo:**
+
 - `CLAUDE.md` router
-- `docs/*` (the leaf docs)
-- `.claude/agents/*` (project-specific subagents)
-- `.claude/skills/*` (project-specific skills)
+- `docs/*` (leaf docs)
+- `.claude/agents/*` (project subagents)
+- `.claude/skills/*` (project skills)
 - MCP server *configuration* (not secrets)
 
-**Do NOT commit:**
-- API keys, tokens, anything in env vars
-- Personal preferences (themes, keybindings)
-- Local-only paths
-- Anything in `.claude/settings.local.json`
+**Do NOT commit:** API keys, tokens, personal prefs, local paths, anything in `.claude/settings.local.json`.
 
 ---
 
+<!-- _class: part-qa -->
+
 ## Sharing patterns
 
-<div class="columns">
+<div class="cols-3">
+<div>
 
 **Per-project**
 - Lives in the repo
-- Versioned with the code
+- Versioned with code
 - Reviewed in PRs
 
+</div>
+<div>
+
 **Per-person**
-- `~/.claude/` for your own skills
-- Your preferred subagents
+- `~/.claude/` for your own
+- Personal subagents
 - Keybindings, themes
 
-**Per-organization**
-- A "starter pack" repo with house skills
-- Internal MCP server for the company API
-- Shared `docs/conventions.md` linked from each project
+</div>
+<div>
 
+**Per-org**
+- Starter-pack repo
+- Internal MCP server
+- Shared conventions doc
+
+</div>
 </div>
 
 ---
 
-## How I personally share knowledge
+<!-- _class: part-qa -->
+
+## How I share knowledge
 
 - Pair sessions, recorded
-- A `docs/learnings/` folder in every project — short notes, dated
+- A `docs/learnings/` folder — short, dated notes
 - A team channel for "I figured out X today"
-- When I do something twice → it becomes a skill, committed
-- When I do something thrice → it becomes a subagent
+- Twice → it becomes a skill, committed
+- Three times → it becomes a subagent
 
 > Tacit knowledge dies. Committed markdown survives team turnover.
 
 ---
+
+<!-- _class: part-qa -->
 
 ## How companies usually share (the messy truth)
 
 - Confluence pages nobody reads
 - A Slack channel of links nobody bookmarks
 - "Ask Bob, he knows"
-- Tribal knowledge that walks out when Bob leaves
+- Tribal knowledge that walks out with Bob
 
-Agentic workflows make this **worse if you don't fix it**:
-- The agent reads the repo, not Confluence
-- "Ask Bob" doesn't scale to a parallel fleet of agents
+Agentic workflows make this **worse if you don't fix it** — the agent reads the repo, not Confluence.
 
 > Repo-resident docs are the only kind that survive.
 
 ---
 
-## Risk 1 — Less velocity while feeling more productive
+<!-- _class: lead part-qa -->
 
-You feel fast. You ship less.
+<svg class="icon icon-xl" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <path d="M32 8 L 52 18 L 52 32 C 52 44, 42 52, 32 56 C 22 52, 12 44, 12 32 L 12 18 Z"/>
+  <path d="M24 32 L 30 38 L 42 26"/>
+</svg>
+
+<div class="kicker">Q&A continued</div>
+
+# The risks
+
+### Six honest ones — and how to protect yourself
+
+---
+
+<!-- _class: part-qa -->
+
+## Risk 1 — Feeling fast, shipping less
+
+You feel productive. You ship less.
 
 - Time-to-PR is shorter
 - Time-to-merged-and-stable is often **longer**
 - Rework, debugging, re-prompting eats the gains
 
-**Counter:**
-- Measure cycle time, not commits
-- Track rework rate
-- Treat "looks done" as suspicious until verified
+**Counter:** measure cycle time, track rework rate, treat "looks done" as suspicious until verified.
 
 ---
 
+<!-- _class: part-qa -->
+
 ## Risk 2 — Knowing architecture, not code
 
-You stop reading the diffs carefully. You drift into being a manager of code.
+You stop reading diffs carefully. You drift into being a manager of code.
 
-**This is fine for some tasks. Dangerous for others.**
+Fine for some tasks. Dangerous for others.
 
 **Counter:**
-- Read every diff line for anything security-, money-, or data-touching
-- Periodically write code from scratch to keep the muscle
+
+- Read every line for security-, money-, or data-touching code
+- Periodically write code from scratch
 - Demand the agent explain *why*, not just *what*
 
 ---
 
+<!-- _class: part-qa -->
+
 ## Risk 3 — Hallucinations as features
 
-The worst bugs: code that runs, passes tests, and does the wrong thing confidently.
+The worst bugs: code that runs, passes tests, and is confidently wrong.
 
 - Made-up API calls that happen to exist
 - Plausible-looking math that's subtly off
 - "Helpful" extra behavior nobody asked for
 
-**Counter:**
-- Spec-first (OpenSpec)
-- Property-based tests for risky logic
-- Always ask: *"What did you change beyond what I asked?"*
+**Counter:** spec-first, property-based tests for risky logic, ask *"what did you change beyond what I asked?"*
 
 ---
+
+<!-- _class: part-qa -->
 
 ## Risk 4 — Security gaps
 
 Agents will happily:
-- Disable a CSP header to fix a console error
-- `chmod 777` to fix a permission issue
-- Skip a hook with `--no-verify` to get a green build
-- Hardcode a secret "just for testing"
 
-**Counter:**
-- Run `/security-review` on every diff that touches auth, headers, secrets, or infra
-- Pre-commit hooks the agent *cannot* bypass
-- Code review by a human for security-critical paths
+- Disable a CSP header to fix a console error
+- `chmod 777` to fix permissions
+- Skip a hook with `--no-verify`
+- Hardcode a "just for testing" secret
+
+**Counter:** `/security-review` on every diff touching auth/headers/secrets. Pre-commit hooks the agent **cannot** bypass.
 
 ---
 
-## Risk 5 — Large blast radius for small changes
+<!-- _class: part-qa -->
+
+## Risk 5 — Large blast radius
 
 "Refactor this function" → 47 files changed.
 
 **Counter:**
+
 - Constrain scope explicitly in the prompt
-- Use `git diff --stat` before accepting
+- `git diff --stat` before accepting
 - A skill that rejects diffs touching > N files without confirmation
 
 ---
 
-## Risk 6 — Bad code structure costs real money
+<!-- _class: part-qa -->
 
-Every prompt loads context. Bad structure = bigger context = more tokens = more $.
+## Risk 6 — Bad structure costs real money
 
-- Monolithic files force the agent to load the whole thing
-- Implicit dependencies force exploratory grep
-- Inconsistent naming forces more retries
+Every prompt loads context. Bad structure → bigger context → more tokens → more $.
 
-**Counter:**
-- Small files
-- Explicit imports
-- Consistent naming
-- Router-style docs
+- Monolithic files force loading the whole thing
+- Implicit deps force exploratory grep
+- Inconsistent naming forces retries
+
+**Counter:** small files · explicit imports · consistent naming · router docs.
 
 ---
 
-## How to protect yourself (summary)
+<!-- _class: part-qa -->
+
+## Protecting yourself — the short list
 
 1. **Spec before code** for anything non-trivial
 2. **Verify** with the actual app, not just tests
 3. **Read diffs** for anything security- or data-critical
 4. **Constrain scope** in the prompt
-5. **Commit your skills and agents** so the team gets better, not just you
+5. **Commit your skills and agents** so the team benefits
 6. **Measure cycle time**, not commits
 
 ---
 
+<!-- _class: part-qa -->
+
 ## Debugging while pairing with AI
 
-Three styles, pick by situation:
-
 <div class="columns">
+<div>
 
 **Prompt-only**
 - Fastest for shallow bugs
 - Risky: agent guesses
-- Good for: "I get error X on line Y"
-
-**Pairing (REPL style)**
-- You drive the hypothesis, AI runs the experiments
-- Best for: unfamiliar code, unclear failures
+- Good for: "error X on line Y"
 
 </div>
+<div>
 
-**Test-driven debug**
-- Write a failing test that captures the bug first
-- Then let the AI fix until green
-- Best for: regressions, anything you must not break again
+**Pairing (REPL)**
+- You drive hypotheses
+- AI runs the experiments
+- Good for: unfamiliar code
+
+</div>
+</div>
+
+**Test-driven debug** — write the failing test first, let AI fix until green. Best for regressions.
 
 ---
+
+<!-- _class: part-qa -->
 
 ## Is your own code easier to debug?
 
 Yes — but the gap is closing.
 
-- **Your code**: you remember the *why*, the intent, the trade-offs
-- **AI code**: the agent remembers nothing; you read it cold
+- **Your code:** you remember the *why*, the trade-offs
+- **AI code:** the agent remembers nothing; you read it cold
 
-Mitigations:
-- Have the agent leave **decision notes** in the PR description (not in code comments)
-- Force the agent to write the *failing test first*, so intent is captured
+**Mitigations:**
+
+- Have the agent leave **decision notes** in the PR description
+- Force the agent to write the *failing test first*
 - Keep diffs small enough to actually read
 
-> The debug cost is paid where the intent is *unrecorded*. Record intent.
+---
+
+<!-- _class: lead part-tips -->
+
+<svg class="icon icon-xl" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <path d="M16 10 L 16 56 L 32 46 L 48 56 L 48 10 Z"/>
+</svg>
+
+<div class="kicker">Part 5</div>
+
+# Tips from the pros
+
+### Links to read after the workshop
 
 ---
 
-<!-- _class: lead -->
-
-# Part 5 — Tips from the people doing this full-time
-
-Links to read after the workshop.
-
----
+<!-- _class: part-tips -->
 
 ## Anthropic — building with Claude
 
-- **Claude Code docs**: https://code.claude.com/docs
-- **Engineering blog**: https://www.anthropic.com/engineering
-- **Prompt engineering guide**: https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview
-- **Agent design patterns**: https://www.anthropic.com/engineering/building-effective-agents
+- [Claude Code docs](https://code.claude.com/docs)
+- [Engineering blog](https://www.anthropic.com/engineering)
+- [Prompt engineering guide](https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview)
+- [Building effective agents](https://www.anthropic.com/engineering/building-effective-agents)
 
 > Start here for primary-source guidance.
 
 ---
 
-## Simon Willison — the daily field notes
+<!-- _class: part-tips -->
 
-- **Blog**: https://simonwillison.net/
-- **"Things I've learned about LLMs"**: https://simonwillison.net/tags/llms/
-- **Newsletter** via the blog RSS
+## Simon Willison — daily field notes
 
-Why: he tries everything, writes it down the same day, and is honest about what didn't work.
+- [Blog](https://simonwillison.net/)
+- [Things I've learned about LLMs](https://simonwillison.net/tags/llms/)
 
----
-
-## Andrej Karpathy — the deep intuition
-
-- **YouTube — "Intro to LLMs"**: https://www.youtube.com/watch?v=zjkBMFhNj_g
-- **YouTube — "Let's build GPT"**: https://www.youtube.com/watch?v=kCc8FmEb1nY
-- **Twitter/X**: @karpathy
-
-Why: you'll understand *why* models behave the way they do, not just how to prompt them.
+> He tries everything, writes it down the same day, and is honest about what didn't work.
 
 ---
 
-## Latent Space (podcast)
+<!-- _class: part-tips -->
 
-- **Site**: https://www.latent.space/
-- Long-form interviews with people building real AI products
+## Andrej Karpathy — deep intuition
 
-Why: hear how teams structure their workflows, what failed, what stuck.
+- [Intro to LLMs (YouTube)](https://www.youtube.com/watch?v=zjkBMFhNj_g)
+- [Let's build GPT (YouTube)](https://www.youtube.com/watch?v=kCc8FmEb1nY)
+- Twitter/X: **@karpathy**
 
----
-
-## Working in public — devs who post their setups
-
-- **Geoffrey Huntley** — https://ghuntley.com/ (agentic workflows, skills, real cases)
-- **Steve Yegge** — long-form essays on AI dev workflows
-- **Patrick Collison's reading list** (not AI-only, but tasteful)
-
-Why: watch how senior engineers integrate this into a daily practice, not a demo.
+> Understand *why* models behave the way they do, not just how to prompt them.
 
 ---
 
-## Where to follow news without drowning
+<!-- _class: part-tips -->
 
-- **Hacker News** — the "Show HN" and "Ask HN" threads
+## Podcasts & long-form
+
+- **Latent Space** — [latent.space](https://www.latent.space/)
+- **Geoffrey Huntley** — [ghuntley.com](https://ghuntley.com/) (agentic workflows, real cases)
+
+> Hear how real teams structure their workflows, what failed, what stuck.
+
+---
+
+<!-- _class: part-tips -->
+
+## Following news without drowning
+
+- **Hacker News** — Show HN / Ask HN threads
 - **r/LocalLLaMA** for local/open-weight tooling
-- **Anthropic + OpenAI + Google DeepMind** blogs only — skip the rest
+- **Anthropic + OpenAI + DeepMind** blogs only — skip the rest
 
-> The signal-to-noise ratio in the AI space is brutal. Curate hard.
+> The signal-to-noise ratio is brutal. Curate hard.
 
 ---
+
+<!-- _class: part-tips -->
 
 ## My one-page distilled advice
 
 1. **Docs are runtime.** Router + leaves. Commit them.
 2. **Spec before code** for anything that matters.
-3. **Skills compound.** Repeated → skill. Skill → subagent. Subagent → committed.
-4. **Read the diff.** Especially for auth, money, data.
-5. **Clear context often.** It's cheap to re-establish, expensive to debug.
-6. **Measure cycle time, not commits.**
-7. **Steal patterns from Anthropic, Simon Willison, Karpathy.** Stop reinventing.
+3. **Skills compound.** Repeated → skill → subagent → committed.
+4. **Read the diff** — especially auth, money, data.
+5. **Clear context often.**
+6. **Measure cycle time**, not commits.
+7. **Steal patterns from Anthropic, Simon Willison, Karpathy.**
 
 ---
 
-<!-- _class: lead -->
+<!-- _class: lead part-concepts -->
 
-# Thank you!
+<svg class="icon icon-xl" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 20 L 32 36 L 52 20"/>
+  <rect x="12" y="14" width="40" height="32" rx="2"/>
+</svg>
+
+# Thank you
 
 ### Questions?
 
-rjp.vroegop@gmail.com
+[randy@vroegop.me](mailto:randy@vroegop.me) · [linkedin.com/in/randy-vroegop](https://www.linkedin.com/in/randy-vroegop/)
 
-The slides, hands-on, and skill files are in this repo.
+Slides, hands-on exercises and skill files live in this repo.
