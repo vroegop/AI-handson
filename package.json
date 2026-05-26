@@ -1,0 +1,16 @@
+{
+  "name": "ai-handson-presentation",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Marp-based presentation",
+  "scripts": {
+    "start": "marp --server slides",
+    "build": "marp slides/presentation.md -o dist/presentation.html",
+    "build:pdf": "marp slides/presentation.md --pdf --allow-local-files -o dist/presentation.pdf",
+    "build:pptx": "marp slides/presentation.md --pptx -o dist/presentation.pptx",
+    "watch": "marp --watch slides/presentation.md -o dist/presentation.html"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^4.1.2"
+  }
+}

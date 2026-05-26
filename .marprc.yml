@@ -1,0 +1,5 @@
+theme: default
+options:
+  looseYAML: false
+html: true
+allowLocalFiles: true
