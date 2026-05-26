@@ -6,36 +6,156 @@ size: 16:9
 header: 'AI Hands-on Workshop'
 footer: '© 2026 — rjp.vroegop@gmail.com'
 style: |
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+  :root {
+    --bg: #faf8f4;
+    --ink: #1a1a1a;
+    --muted: #6b6b6b;
+    --accent: #c2410c;
+    --rule: #1a1a1a;
+    --code-bg: #f1ede5;
+  }
+
   section {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     font-size: 26px;
+    font-weight: 400;
+    line-height: 1.45;
+    padding: 70px 80px;
+    letter-spacing: -0.005em;
   }
-  section.lead {
-    text-align: center;
+
+  h1, h2, h3 {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--ink);
   }
-  section.lead h1 {
-    font-size: 64px;
+
+  h1 {
+    font-size: 52px;
+    margin-bottom: 0.3em;
   }
   h2 {
-    color: #2563eb;
+    font-size: 40px;
+    margin-bottom: 0.5em;
+    padding-bottom: 0.25em;
+    border-bottom: 1px solid var(--ink);
   }
+  h3 {
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--muted);
+  }
+
+  strong { font-weight: 600; color: var(--ink); }
+  em { font-style: italic; }
+
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid currentColor; }
+
+  ul, ol { padding-left: 1.2em; }
+  li { margin: 0.25em 0; }
+  li::marker { color: var(--accent); }
+
   code {
-    background: #f1f5f9;
-    padding: 2px 6px;
-    border-radius: 4px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    background: var(--code-bg);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 0.9em;
   }
   pre {
-    font-size: 20px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    background: var(--code-bg);
+    border-left: 3px solid var(--accent);
+    border-radius: 0;
+    padding: 18px 22px;
+    font-size: 19px;
+    line-height: 1.5;
   }
+  pre code { background: transparent; padding: 0; }
+
   blockquote {
-    border-left: 4px solid #2563eb;
-    color: #475569;
+    border: none;
+    border-left: 3px solid var(--accent);
+    padding-left: 1em;
+    margin-left: 0;
+    color: var(--muted);
+    font-style: italic;
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 1.05em;
   }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 0.95em;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px 14px;
+    border-bottom: 1px solid #d9d4ca;
+  }
+  th {
+    border-bottom: 2px solid var(--ink);
+    font-weight: 600;
+  }
+
+  header, footer {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  section::after {
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  /* Lead / title slides */
+  section.lead {
+    text-align: left;
+    padding: 90px 100px;
+    background: var(--ink);
+    color: var(--bg);
+  }
+  section.lead h1 {
+    font-size: 88px;
+    color: var(--bg);
+    line-height: 1;
+  }
+  section.lead h2 {
+    border: none;
+    color: var(--bg);
+    opacity: 0.7;
+    font-weight: 400;
+    font-style: italic;
+  }
+  section.lead h3 {
+    color: var(--bg);
+    opacity: 0.7;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 2em;
+  }
+  section.lead strong { color: var(--accent); }
+  section.lead::after { color: var(--bg); opacity: 0.5; }
+  section.lead header, section.lead footer { color: var(--bg); opacity: 0.4; }
+  section.lead blockquote { color: var(--bg); opacity: 0.8; }
+
+  /* Layout helpers */
   .columns {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
+    gap: 2.5rem;
   }
-  .small { font-size: 20px; }
+  .small { font-size: 20px; color: var(--muted); }
 ---
 
 <!-- _class: lead -->
